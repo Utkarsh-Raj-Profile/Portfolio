@@ -304,20 +304,33 @@ export default function App() {
         Send Message
       </h3>
 
-      <form action="https://api.web3forms.com/submit"
-            method="POST"
-            className="space-y-6"
-            onSubmit={(e) => {
-            setTimeout(() => {
-              e.target.reset();
-            }, 1000);
-            }}
-      >
+      <form
+  onSubmit={async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      alert("Message sent successfully!");
+      e.target.reset();
+    } else {
+      alert("Something went wrong!");
+    }
+  }}
+  className="space-y-6"
+>
 
         <input
           type="hidden"
           name="access_key"
-          value="2886393f-4b3e-48b6-9c61-8a153d77e6d0"
+          value={import.meta.env.VITE_WEB3FORMS_ACCESS_KEY}
         />
 
         <input
