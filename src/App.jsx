@@ -371,6 +371,199 @@ export default function App() {
         </div>
       </section>
 
+      {/* Internships */}
+<section
+  id="internships"
+  className="max-w-7xl mx-auto px-6 py-32"
+>
+
+  <h2 className="text-6xl font-black mb-20">
+
+    Internship
+
+    <span className="text-cyan-500">
+      {" "}Experience
+    </span>
+
+  </h2>
+
+  <div className="grid gap-8">
+
+    {/* Gen AI Internship */}
+    <div className="p-10 rounded-[40px] border border-black/10 dark:border-white/10 bg-black/[0.03] dark:bg-white/[0.03] hover:-translate-y-2 transition">
+
+      <h3 className="text-3xl font-black">
+        Generative AI Virtual Internship
+      </h3>
+
+      <p className="text-cyan-500 font-semibold mt-2">
+        Skillible & AICTE • Jul 2024 - Aug 2024
+      </p>
+
+      <p className="text-zinc-600 dark:text-zinc-400 mt-6 text-lg leading-relaxed">
+
+        Researched and explored Generative AI concepts, prompt engineering,
+        and large language models. Authored a research paper on Generative AI
+        covering AI capabilities, applications, limitations, and future impact.
+
+      </p>
+
+      <div className="flex flex-wrap gap-3 mt-6">
+
+        {[
+          "Generative AI",
+          "Prompt Engineering",
+          "LLMs",
+          "AI Research",
+        ].map((item) => (
+
+          <span
+            key={item}
+            className="px-4 py-2 rounded-full bg-purple-500/10 text-purple-500 text-sm"
+          >
+            {item}
+          </span>
+
+        ))}
+
+      </div>
+
+      <div className="flex flex-wrap gap-4 mt-8">
+
+        <a
+          href="https://drive.google.com/file/d/1IDm1EKXPlmliTHjklkD9xSwn8IUZAFrI/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-7 py-4 rounded-2xl bg-gradient-to-r from-zinc-900 to-zinc-700 dark:from-zinc-200 dark:to-white text-white dark:text-black font-semibold hover:scale-105 transition"
+        >
+          Show Certificate
+        </a>
+
+        <a
+          href="https://github.com/Utkarsh-Raj-Profile/Research-paper-summary-project"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-7 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-semibold hover:scale-105 transition"
+        >
+          View Research Work
+        </a>
+
+      </div>
+
+    </div>
+
+    {/* Cisco Internship */}
+    <div className="p-10 rounded-[40px] border border-black/10 dark:border-white/10 bg-black/[0.03] dark:bg-white/[0.03] hover:-translate-y-2 transition">
+
+      <h3 className="text-3xl font-black">
+        Cybersecurity Virtual Internship
+      </h3>
+
+      <p className="text-cyan-500 font-semibold mt-2">
+        Cisco Networking Academy • 2023
+      </p>
+
+      <p className="text-zinc-600 dark:text-zinc-400 mt-6 text-lg leading-relaxed">
+
+        Designed a secure college network architecture connecting multiple
+        buildings and campus areas. Worked on network topology, routing,
+        communication flow, and cybersecurity fundamentals.
+
+      </p>
+
+      <div className="flex flex-wrap gap-3 mt-6">
+
+        {[
+          "Cybersecurity",
+          "Networking",
+          "Cisco",
+          "Network Architecture",
+        ].map((item) => (
+
+          <span
+            key={item}
+            className="px-4 py-2 rounded-full bg-cyan-500/10 text-cyan-500 text-sm"
+          >
+            {item}
+          </span>
+
+        ))}
+
+      </div>
+
+      <div className="flex flex-wrap gap-4 mt-8">
+
+        <a
+          href="https://drive.google.com/file/d/1IRTcKL0uNFzgaxym40OWozv5QyOXfxLM/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-7 py-4 rounded-2xl bg-gradient-to-r from-zinc-900 to-zinc-700 dark:from-zinc-200 dark:to-white text-white dark:text-black font-semibold hover:scale-105 transition"
+        >
+          Show Certificate
+        </a>
+
+      </div>
+
+    </div>
+
+    {/* Data Science Internship */}
+    <div className="p-10 rounded-[40px] border border-black/10 dark:border-white/10 bg-black/[0.03] dark:bg-white/[0.03] hover:-translate-y-2 transition">
+
+      <h3 className="text-3xl font-black">
+        Data Science with Python Internship
+      </h3>
+
+      <p className="text-cyan-500 font-semibold mt-2">
+        PERSONIFWY / Coincent • Mar 2023 - May 2023
+      </p>
+
+      <p className="text-zinc-600 dark:text-zinc-400 mt-6 text-lg leading-relaxed">
+
+        Built a machine learning powered chatbot trained on custom datasets
+        capable of answering user queries intelligently based on trained data.
+        Worked with Python, NLP concepts, and machine learning workflows.
+
+      </p>
+
+      <div className="flex flex-wrap gap-3 mt-6">
+
+        {[
+          "Python",
+          "Machine Learning",
+          "NLP",
+          "Chatbot",
+        ].map((item) => (
+
+          <span
+            key={item}
+            className="px-4 py-2 rounded-full bg-green-500/10 text-green-500 text-sm"
+          >
+            {item}
+          </span>
+
+        ))}
+
+      </div>
+
+      <div className="flex flex-wrap gap-4 mt-8">
+
+        <a
+          href="https://drive.google.com/file/d/1sHcmuLTkis9bauX0qg9r0aBZnOKy-spK/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-7 py-4 rounded-2xl bg-gradient-to-r from-zinc-900 to-zinc-700 dark:from-zinc-200 dark:to-white text-white dark:text-black font-semibold hover:scale-105 transition"
+        >
+          Show Certificate
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
       {/* Experience & Achievements */}
 <section
   id="experience"
@@ -449,7 +642,7 @@ export default function App() {
       <p className="text-zinc-600 dark:text-zinc-400 mt-5 text-lg leading-relaxed">
 
         Secured 1st place in a competitive inter-college gaming
-        tournament, showcasing teamwork, strategic thinking,
+        tournament, showcasing strategic thinking,
         and high-pressure decision making.
 
       </p>
