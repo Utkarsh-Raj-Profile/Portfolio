@@ -127,6 +127,7 @@ export default function App() {
 
             <div className="flex gap-5 mt-10 flex-wrap">
 
+  {/* View Projects */}
   <a
     href="#projects"
     className="px-8 py-4 rounded-2xl bg-black text-white dark:bg-white dark:text-black font-semibold hover:scale-105 transition"
@@ -134,6 +135,7 @@ export default function App() {
     View Projects
   </a>
 
+  {/* GitHub */}
   <a
     href="https://github.com/Utkarsh-Raj-Profile"
     target="_blank"
@@ -143,6 +145,17 @@ export default function App() {
     GitHub
   </a>
 
+  {/* LinkedIn */}
+  <a
+    href="https://www.linkedin.com/in/utkarsh-raj-software-engineer/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold hover:scale-105 transition"
+  >
+    LinkedIn
+  </a>
+
+  {/* LeetCode */}
   <a
     href="https://leetcode.com/u/Utkarsh__Raj_/"
     target="_blank"
@@ -152,15 +165,15 @@ export default function App() {
     LeetCode
   </a>
 
-  {/* <a
-    href="/resume.pdf"
-    target="_blank"
-    rel="noopener noreferrer"
-    download
-    className="px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-semibold hover:scale-105 transition"
-  >
-    Download Resume
-  </a> */}
+  {/* Resume */}
+  <a
+  href="https://drive.google.com/file/d/1JRSwssl3h0B1HJWG3oI6Q93tsumEietN/view?usp=sharing"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-semibold hover:scale-105 transition"
+>
+  View Resume
+</a>
 
 </div>
 
