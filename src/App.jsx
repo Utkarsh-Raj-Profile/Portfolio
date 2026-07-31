@@ -31,7 +31,7 @@ export default function App() {
       title: "SigmaGPT",
       desc: "AI conversational platform powered by GPT APIs with scalable backend architecture and cloud deployment.",
       image: sigmaImg,
-      link: "http://ec2-16-171-237-242.eu-north-1.compute.amazonaws.com/",
+      link: "https://github.com/Utkarsh-Raj-Profile/SigmaGPT",
       tech: ["OpenAI", "AWS", "React", "Node.js"],
     },
     {
@@ -167,7 +167,7 @@ export default function App() {
 
   {/* Resume */}
   <a
-  href="https://drive.google.com/file/d/1cWV4SynXREtYDOEfFaI4hcsto5aD8Q0P/view?usp=sharing"
+  href="https://drive.google.com/file/d/1PAsk0E3F9mDCYU3hdDChYJNRty6zTvk9/view?usp=sharing"
   target="_blank"
   rel="noopener noreferrer"
   className="px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-semibold hover:scale-105 transition"
