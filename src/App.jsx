@@ -80,15 +80,33 @@ const experience = [
 ];
 
 const education = [
-  { degree:"Master of Technology · Computer Science & Engineering", institute:"IES College of Science and Technology, Bhopal · RGPV", period:"2026 – Present", status:"Currently pursuing" },
-  { degree:"Bachelor of Technology · Computer Science", institute:"Rajiv Gandhi Proudyogiki Vishwavidyalaya (RGPV)", period:"Graduated May 2025", status:"Completed" },
-  { degree:"Diploma · Computer Science", institute:"Computer Science", period:"Completed", status:"Completed" }
+  {
+    degree: "Master of Technology · Computer Science & Engineering",
+    institute: "IES College of Science and Technology, Bhopal · RGPV",
+    period: "2026 – Present",
+    status: "Currently Pursuing",
+    score: "Currently Enrolled",
+  },
+  {
+    degree: "Bachelor of Technology · Computer Science",
+    institute: "Lakshmi Narain College of Technology & Science, Bhopal · RGPV",
+    period: "Graduated May 2025",
+    status: "Completed",
+    score: "7.55 CGPA",
+  },
+  {
+    degree: "Diploma · Computer Science",
+    institute: "Patel College of Science & Technology, Bhopal · RGPV",
+    period: "Completed",
+    status: "Completed",
+    score: "8.49 CGPA",
+  },
 ];
 
 const techs = [
   ["React","react/react-original.svg"],["JavaScript","javascript/javascript-original.svg"],["Node.js","nodejs/nodejs-original.svg"],
   ["Express","express/express-original.svg"],["MongoDB","mongodb/mongodb-original.svg"],["Python","python/python-original.svg"],
-  ["Java","java/java-original.svg"],["Tailwind","tailwindcss/tailwindcss-original.svg"],["AWS","https://cdn.simpleicons.org/amazonaws/FF9900"],
+  ["Java","java/java-original.svg"],["Tailwind","tailwindcss/tailwindcss-original.svg"],["AWS","https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"],
   ["Git","git/git-original.svg"],["GitHub","github/github-original.svg"],["Vite","vitejs/vitejs-original.svg"]
 ];
 
@@ -105,7 +123,15 @@ function Header(){
   const [open,setOpen]=useState(false);
   const [dark,setDark]=useState(()=>localStorage.getItem("portfolio-theme")!=="light");
   useEffect(()=>{document.documentElement.classList.toggle("light-mode",!dark);localStorage.setItem("portfolio-theme",dark?"dark":"light");},[dark]);
-  const links=[["Home","/"],["Projects","/projects"],["Certificates","/certifications"],["Achievements","/achievements"],["Activity","/activity"]];
+  const links=[
+  ["Home","/"],
+  ["Projects","/projects"],
+  ["Certificates","/certifications"],
+  ["Achievements","/achievements"],
+  ["Education","/education"],
+  ["Activity","/activity"],
+  ["Contact","/contact"]
+];
   return <header className="topbar"><div className="nav-inner"><Link to="/" className="wordmark" onClick={()=>setOpen(false)}>utkarsh<span>.</span></Link>
     <nav className={open?"nav-menu open":"nav-menu"}>{links.map(([label,path])=><NavLink end={path==="/"} key={path} to={path} onClick={()=>setOpen(false)}>{label}</NavLink>)}</nav>
     <div className="nav-tools"><button className="icon-btn" onClick={()=>setDark(v=>!v)} aria-label="Toggle theme">{dark?"☼":"◐"}</button><a className="nav-resume" href={RESUME} target="_blank" rel="noreferrer">Resume <IconArrow/></a><button className="mobile-menu" onClick={()=>setOpen(v=>!v)} aria-label="Toggle menu">☰</button></div>
@@ -133,7 +159,7 @@ function Home(){
     <div className="ticker"><div>{[...Array(2)].flatMap(()=>["FULL STACK DEVELOPMENT","GENERATIVE AI","RAG SYSTEMS","PROBLEM SOLVING","PRODUCT ENGINEERING"]).map((x,i)=><span key={i}>{x}<b>✳</b></span>)}</div></div>
     <section className="section container"><Heading tag="A LITTLE ABOUT ME" title="Curiosity drives" accent="my work."/><div className="about-grid"><Reveal><p className="big-statement">I enjoy creating useful software that brings together thoughtful interfaces, dependable backend systems and emerging AI capabilities.</p><p className="muted-copy">My experience spans the MERN stack, cloud deployment and AI-enabled applications. I like understanding systems end to end—from shaping a user experience to designing APIs and connecting data services.</p></Reveal><div className="fact-stack">{[["01","Full Stack Development","Responsive products and RESTful services."],["02","AI & RAG Applications","LLM-powered workflows and document intelligence."],["03","Continuous Learning","DSA practice and engineering fundamentals."]].map(x=><Reveal key={x[0]}><div className="fact-row"><b>{x[0]}</b><div><strong>{x[1]}</strong><p>{x[2]}</p></div></div></Reveal>)}</div></div></section>
     <section className="section section-muted"><div className="container"><Heading tag="WHAT I WORK WITH" title="A practical" accent="toolkit." sub="A growing toolkit across web engineering, databases, AI and deployment."/><div className="skills-grid">{skills.map((group,i)=><Reveal key={group[0]} delay={i*.06}><article className="skill-card"><span className="eyebrow">0{i+1} / EXPERTISE</span><h3>{group[0]}</h3><div className="chip-row">{group[1].map(s=><span key={s}>{s}</span>)}</div></article></Reveal>)}</div></div></section>
-    <section className="tech-rail"><div className="container"><span className="eyebrow">TECHNOLOGIES IN MY TOOLKIT</span><div className="tech-window"><div className="tech-track">{[...techs,...techs].map(([name,icon],i)=><div className="tech-item" key={`${name}-${i}`}><img src={icon.startsWith("https://") ? icon : `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${icon}`} alt=""/><span>{name}</span></div>)}</div></div></div></section>
+    <section className="tech-rail"><div className="container"><span className="eyebrow">TECHNOLOGIES IN MY TOOLKIT</span><div className="tech-window"><div className="tech-track">{[...techs,...techs].map(([name,icon],i)=><div className="tech-item" key={`${name}-${i}`}><img src={icon.startsWith("https://") ? icon : `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${icon}`} alt={`${name} logo`} loading="lazy" onError={e=>{if(name==="AWS"&&!e.currentTarget.dataset.fallback){e.currentTarget.dataset.fallback="1";e.currentTarget.src="https://cdn.simpleicons.org/amazonaws/FF9900";}}}/><span>{name}</span></div>)}</div></div></div></section>
     <section className="section container"><div className="section-topline"><Heading tag="SELECTED WORK" title="A few things" accent="I've built." sub="A small preview. Explore the project space for the full case-study collection."/></div><div className="project-grid home-projects">{projects.slice(0,2).map((p,i)=><ProjectCard project={p} index={i}/>)}</div><div className="center-action"><Link className="btn btn-outline" to="/projects">Explore all projects <IconArrow/></Link></div></section>
     <section className="section section-muted"><div className="container"><div className="section-topline"><Heading tag="MILESTONES" title="Progress through" accent="practice." sub="A few milestones that reflect consistency, curiosity and continuous learning."/></div><div className="stat-grid">{achievements.slice(0,3).map((a,i)=><Reveal key={a.title} delay={i*.06}><div className="stat-card"><strong>{a.value}</strong><h3>{a.title}</h3><p>{a.detail}</p></div></Reveal>)}</div><div className="center-action"><Link className="text-link" to="/achievements">See all achievements ↗</Link></div></div></section>
     <section className="section container"><div className="section-topline"><Heading tag="CONTINUOUS LEARNING" title="Credentials &" accent="growth." sub="Selected professional credentials and internship experience."/></div><div className="mini-credentials">{certificates.slice(0,2).map(c=><div className="mini-credential" key={c.title}><span>✳</span><div><b>{c.title}</b><small>{c.issuer}</small></div></div>)}</div><div className="center-action"><Link className="text-link" to="/certifications">Explore certificates ↗</Link></div></section>
@@ -187,10 +213,53 @@ function CertificatesPage(){
 
 function AchievementsPage(){return <><PageIntro tag="MILESTONES & RECOGNITION" title="Consistency creates" accent="momentum." sub="A record of problem-solving practice, learning milestones and experiences beyond the code editor."/><section className="section container page-section"><div className="stat-grid">{achievements.map((a,i)=><Reveal key={a.title} delay={i*.06}><article className="stat-card large-stat"><strong>{a.value}</strong><h3>{a.title}</h3><p>{a.detail}</p></article></Reveal>)}</div><div className="achievement-timeline">{[["ACADEMIC","Qualified JEE Main · 2019"],["COMPETITION","Smart India Hackathon finalist"],["RECOGNITION","1st prize · Inter-college LAN gaming"],["CERTIFICATION","Oracle Cloud Infrastructure 2025 · Generative AI Professional"]].map((x,i)=><Reveal key={x[1]} delay={i*.06}><div className="timeline-line"><span>0{i+1}</span><div><small>{x[0]}</small><h3>{x[1]}</h3></div></div></Reveal>)}</div></section></>;}
 
-function ActivityPage(){const [repos,setRepos]=useState([]);const [status,setStatus]=useState("loading");useEffect(()=>{let live=true;fetch("https://api.github.com/users/Utkarsh-Raj-Profile/repos?sort=updated&per_page=100").then(r=>{if(!r.ok)throw new Error("GitHub API unavailable");return r.json();}).then(data=>{if(live){setRepos(data.filter(r=>!r.fork).sort((a,b)=>(b.stargazers_count*3+b.forks_count)-(a.stargazers_count*3+a.forks_count)).slice(0,6));setStatus("ready");}}).catch(()=>live&&setStatus("error"));return()=>{live=false;};},[]);return <><PageIntro tag="CONSISTENCY IN PRACTICE" title="Coding activity &" accent="open source." sub="A live snapshot of public GitHub repositories, contribution history and LeetCode practice."/><section className="section container page-section"><div className="activity-panels"><Reveal><article className="activity-panel"><div className="panel-heading"><div><span className="eyebrow">OPEN SOURCE & BUILDING</span><h3>GitHub contributions</h3></div><a href={GITHUB} target="_blank" rel="noreferrer">↗</a></div><a href={GITHUB} target="_blank" rel="noreferrer"><img src="https://ghchart.rshah.org/397a68/Utkarsh-Raj-Profile" alt="GitHub contribution calendar"/></a><p>Contribution calendar from a public GitHub chart service.</p></article></Reveal><Reveal delay={.1}><article className="activity-panel"><div className="panel-heading"><div><span className="eyebrow">DATA STRUCTURES & ALGORITHMS</span><h3>LeetCode practice</h3></div><a href={LEETCODE} target="_blank" rel="noreferrer">↗</a></div><a href={LEETCODE} target="_blank" rel="noreferrer"><img className="leetcode-image" src="https://leetcard.jacoblin.cool/Utkarsh__Raj_?ext=heatmap&theme=light&font=DM%20Sans&border=0" alt="LeetCode profile and activity heatmap"/></a><p>Submission history from the public LeetCode profile card.</p></article></Reveal></div><div className="repo-heading"><Heading tag="BUILT IN PUBLIC" title="Recent public" accent="repositories." sub="Loaded live from the GitHub public API. Anonymous API requests may occasionally be rate-limited."/></div>{status==="loading"&&<p className="muted-copy">Loading repositories…</p>}{status==="error"&&<p className="muted-copy">GitHub's API is temporarily unavailable. <a href={`${GITHUB}?tab=repositories`}>Browse repositories directly.</a></p>}{status==="ready"&&<div className="repo-grid">{repos.map((r,i)=><Reveal key={r.id} delay={i*.05}><a className="repo-card" href={r.html_url} target="_blank" rel="noreferrer"><div><b>⌘</b><span>↗</span></div><h3>{r.name}</h3><p>{r.description||"Public repository — open on GitHub to explore the source."}</p><small>{r.language||"Repository"}　★ {r.stargazers_count}　⑂ {r.forks_count}</small></a></Reveal>)}</div>}<div className="center-action"><a className="btn btn-outline" href={GITHUB} target="_blank" rel="noreferrer">Open GitHub profile <IconArrow/></a><a className="btn btn-outline" href={LEETCODE} target="_blank" rel="noreferrer">Open LeetCode profile <IconArrow/></a></div></section></>;}
+function ActivityPage(){const [repos,setRepos]=useState([]);const [status,setStatus]=useState("loading");useEffect(()=>{let live=true;fetch("https://api.github.com/users/Utkarsh-Raj-Profile/repos?sort=updated&per_page=100").then(r=>{if(!r.ok)throw new Error("GitHub API unavailable");return r.json();}).then(data=>{if(live){const excludedRepos = new Set([
+          "tds-photo-website",
+          "utkarsh-raj-profile",
+          "zerodha_apna_college",
+          "javaprogramming"
+        ]);
+        setRepos(
+          data
+            .filter(r => !r.fork && !excludedRepos.has(r.name.toLowerCase()))
+            .sort((a,b) => (b.stargazers_count*3+b.forks_count) - (a.stargazers_count*3+a.forks_count))
+            .slice(0,6)
+        );setStatus("ready");}}).catch(()=>live&&setStatus("error"));return()=>{live=false;};},[]);return <><PageIntro tag="CONSISTENCY IN PRACTICE" title="Coding activity &" accent="open source." sub="A live snapshot of public GitHub repositories, contribution history and LeetCode practice."/><section className="section container page-section"><div className="activity-panels"><Reveal><article className="activity-panel"><div className="panel-heading"><div><span className="eyebrow">OPEN SOURCE & BUILDING</span><h3>GitHub contributions</h3></div><a href={GITHUB} target="_blank" rel="noreferrer">↗</a></div><a href={GITHUB} target="_blank" rel="noreferrer"><img src="https://ghchart.rshah.org/397a68/Utkarsh-Raj-Profile" alt="GitHub contribution calendar"/></a><p>Contribution calendar from a public GitHub chart service.</p></article></Reveal><Reveal delay={.1}><article className="activity-panel"><div className="panel-heading"><div><span className="eyebrow">DATA STRUCTURES & ALGORITHMS</span><h3>LeetCode practice</h3></div><a href={LEETCODE} target="_blank" rel="noreferrer">↗</a></div><a href={LEETCODE} target="_blank" rel="noreferrer"><img className="leetcode-image" src="https://leetcard.jacoblin.cool/Utkarsh__Raj_?ext=heatmap&theme=light&font=DM%20Sans&border=0" alt="LeetCode profile and activity heatmap"/></a><p>Submission history from the public LeetCode profile card.</p></article></Reveal></div><div className="repo-heading"><Heading tag="BUILT IN PUBLIC" title="Recent public" accent="repositories." sub="Loaded live from the GitHub public API. Anonymous API requests may occasionally be rate-limited."/></div>{status==="loading"&&<p className="muted-copy">Loading repositories…</p>}{status==="error"&&<p className="muted-copy">GitHub's API is temporarily unavailable. <a href={`${GITHUB}?tab=repositories`}>Browse repositories directly.</a></p>}{status==="ready"&&<div className="repo-grid">{repos.map((r,i)=><Reveal key={r.id} delay={i*.05}><a className="repo-card" href={r.html_url} target="_blank" rel="noreferrer"><div><b>⌘</b><span>↗</span></div><h3>{r.name}</h3><p>{r.description||"Public repository — open on GitHub to explore the source."}</p><small>{r.language||"Repository"}　★ {r.stargazers_count}　⑂ {r.forks_count}</small></a></Reveal>)}</div>}<div className="center-action"><a className="btn btn-outline" href={GITHUB} target="_blank" rel="noreferrer">Open GitHub profile <IconArrow/></a><a className="btn btn-outline" href={LEETCODE} target="_blank" rel="noreferrer">Open LeetCode profile <IconArrow/></a></div></section></>;}
+
+
+function EducationPage(){
+  return <>
+    <PageIntro
+      tag="MY ACADEMIC BACKGROUND"
+      title="Learning builds"
+      accent="the foundation."
+      sub="My academic journey in Computer Science and Engineering, from diploma studies to postgraduate education."
+    />
+    <section className="section container page-section education-page">
+      <div className="education-grid">
+        {education.map((item,index)=>(
+          <Reveal key={item.degree} delay={index*.08}>
+            <article className="education-card">
+              <div className="education-card-top">
+                <span className="education-status">{item.status}</span>
+                <span className="education-number">0{index+1}</span>
+              </div>
+              <h3>{item.degree}</h3>
+              <p className="education-institute">{item.institute}</p>
+              <div className="education-meta">
+                <span>{item.period}</span>
+                <strong>{item.score}</strong>
+              </div>
+            </article>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  </>;
+}
 
 function ContactPage(){const [state,setState]=useState("idle");async function submit(e){e.preventDefault();const key=import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;if(!key){setState("missing");return;}setState("sending");const form=e.currentTarget;const data=new FormData(form);data.set("access_key",key);data.set("subject","New portfolio message");try{const response=await fetch("https://api.web3forms.com/submit",{method:"POST",body:data});const result=await response.json();if(!response.ok||!result.success)throw new Error(result.message);form.reset();setState("success");}catch{setState("error");}}return <><PageIntro tag="LET'S CONNECT" title="Let's make" accent="something meaningful." sub="Open to software engineering opportunities, collaborations and conversations about building useful products."/><section className="section container page-section contact-layout"><div className="contact-links"><a href="mailto:utkarshrajcsestudent@gmail.com">utkarshrajcsestudent@gmail.com <IconArrow/></a><a href={LINKEDIN} target="_blank" rel="noreferrer">LinkedIn <IconArrow/></a><a href={GITHUB} target="_blank" rel="noreferrer">GitHub <IconArrow/></a></div><form className="contact-form" onSubmit={submit}><label>Name<input name="name" required placeholder="Your name"/></label><label>Email<input name="email" type="email" required placeholder="you@example.com"/></label><label>Message<textarea name="message" rows="5" required placeholder="Tell me a little about your opportunity…"/></label><button className="btn btn-primary" disabled={state==="sending"}>{state==="sending"?"Sending…":"Send message"} <IconArrow/></button>{state==="success"&&<p>Thanks! Your message has been sent.</p>}{state==="error"&&<p>Could not send. Please email me directly.</p>}{state==="missing"&&<p>Add VITE_WEB3FORMS_ACCESS_KEY to your .env file to enable the form.</p>}</form></section></>;}
 
-function RouteMotion(){const location=useLocation();return <AnimatePresence mode="wait"><motion.div key={location.pathname} className="route-page" initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-8}} transition={{duration:.28}}>{location.pathname==="/"?<Home/>:location.pathname==="/projects"?<ProjectsPage/>:location.pathname==="/certifications"?<CertificatesPage/>:location.pathname==="/achievements"?<AchievementsPage/>:location.pathname==="/activity"?<ActivityPage/>:<ContactPage/>}</motion.div></AnimatePresence>;}
+function RouteMotion(){const location=useLocation();return <AnimatePresence mode="wait"><motion.div key={location.pathname} className="route-page" initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-8}} transition={{duration:.28}}>{location.pathname==="/"?<Home/>:location.pathname==="/projects"?<ProjectsPage/>:location.pathname==="/certifications"?<CertificatesPage/>:location.pathname==="/achievements"?<AchievementsPage/>:location.pathname==="/education"?<EducationPage/>:location.pathname==="/activity"?<ActivityPage/>:location.pathname==="/contact"?<ContactPage/>:<Home/>}</motion.div></AnimatePresence>;}
 
 export default function App(){return <BrowserRouter><ScrollManager/><Shell><RouteMotion/></Shell></BrowserRouter>;}
